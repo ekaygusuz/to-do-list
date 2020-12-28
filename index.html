@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="bg-light">
+<body >
 
 
   <script type="text/javascript">
@@ -66,25 +66,19 @@
 
     function myFunction() {
 
-      // eğer body elementinin bg-dark class'ı varsa sil, yoksa bg-dark class'ı ekle
       bodyElementi.classList.toggle("bg-dark");
       document.getElementById("myDIV").classList.toggle("dark-mode");
       document.getElementById("mavi").classList.toggle("dark-mode-blue");
-      
-      // eğer body elementinin text-light class'ı varsa sil, yoksa text-light class'ı ekle
-      bodyElementi.classList.toggle("text-light");
 
-      // eğer button elementin btn-dark class'ı varsa sil, yoksa btn-dark class'ı ekle
-      butonElementi.classList.toggle("btn-dark");
-      // eğer elementin bg-dark class'ı yoksa, demekki sayfa şuanda light modda
-      // eğer elementin bg-dark class'ı varsa, demekki sayfa şuanda dark modda.
+
+
       if( bodyElementi.classList.contains("bg-dark") )
       {
-        butonElementi.innerText = "Light";
+        butonelementi.innerText ="Light";
 
 
       }else{
-        butonElementi.innerText = "Dark!";
+        butonelementi.innerText = "Dark";
 
       }
     }
