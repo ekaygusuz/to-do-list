@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+</head>
+
+<body class="bg-light">
+
+
+  <script type="text/javascript">
+    var bodyElementi = document.querySelector("body");
+
+    var divElementi = document.createElement("div");
+    bodyElementi.appendChild(divElementi);
+    divElementi.id = "myDIV";
+    divElementi.classList.add("header");
+    // <button onclick="myFunction()">Toggle dark mode</button>
+
+
+
+    var h2Elementi = document.createElement("h2");
+    var h2Yazi = document.createTextNode("My Weekly Plan");
+    h2Elementi.style = "margin:5px";
+    h2Elementi.appendChild(h2Yazi);
+    divElementi.appendChild(h2Elementi);
+
+    var inputElementi = document.createElement("input");
+    divElementi.appendChild(inputElementi);
+    inputElementi.setAttribute = ("type", "text");
+    inputElementi.id = "myInput";
+    inputElementi.placeholder = ("What are you Planning?");
+
+    var spanElementi = document.createElement("span");
+    var spanYazi = document.createTextNode("Add Plan");
+    spanElementi.appendChild(spanYazi);
+    spanElementi.onclick = newElement;
+    spanElementi.classList.add("addBtn");
+    divElementi.appendChild(spanElementi);
+
+    var ulElementi = document.createElement("ul");
+    ulElementi.id = "myUL";
+    bodyElementi.appendChild(ulElementi);
+    var div2 = document.createElement("div");
+    divElementi.appendChild(div2);
+    var div2Yazi = document.createTextNode("This Week I'm Going to do....");
+    div2.appendChild(div2Yazi);
+    div2.classList.add("div2");
+    div2.id="mavi";
+
+    var butonelementi=document.createElement("button");
+    divElementi.appendChild(butonelementi);
+    var butonYazi=document.createTextNode("Dark");
+    butonelementi.classList.add("buton");
+    butonelementi.appendChild(butonYazi);
+    butonelementi.setAttribute("onclick","myFunction()");
+
+
+
+    function myFunction() {
+
+      // eğer body elementinin bg-dark class'ı varsa sil, yoksa bg-dark class'ı ekle
+      bodyElementi.classList.toggle("bg-dark");
+      document.getElementById("myDIV").classList.toggle("dark-mode");
+      document.getElementById("mavi").classList.toggle("dark-mode-blue");
+      
+      // eğer body elementinin text-light class'ı varsa sil, yoksa text-light class'ı ekle
+      bodyElementi.classList.toggle("text-light");
+
+      // eğer button elementin btn-dark class'ı varsa sil, yoksa btn-dark class'ı ekle
+      butonElementi.classList.toggle("btn-dark");
+      // eğer elementin bg-dark class'ı yoksa, demekki sayfa şuanda light modda
+      // eğer elementin bg-dark class'ı varsa, demekki sayfa şuanda dark modda.
+      if( bodyElementi.classList.contains("bg-dark") )
+      {
+        butonElementi.innerText = "Light";
+
+
+      }else{
+        butonElementi.innerText = "Dark!";
+
+      }
+    }
+
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+
+    // Click on a close button to hide the current list item
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+
+    // Add a "checked" symbol when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+      }
+    }, false);
+
+    // Create a new list item when clicking on the "Add" button
+    function newElement() {
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("myInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      if (inputValue === '') {
+        alert("You must write something!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
+
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
